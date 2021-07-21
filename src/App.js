@@ -4,7 +4,7 @@ import Home from "./components/Main/Home/Home";
 import Shop from "./components/Main/Shop/Shop";
 import Cart from "./components/Main/Cart/Cart";
 import Nav from "./components/Navbar/Nav";
-import "./App.css";
+import { GlobalStyles } from "./components/GlobalStyles";
 import { useTransition, animated } from "@react-spring/web";
 
 export default function App() {
@@ -17,6 +17,7 @@ export default function App() {
 
   return (
     <>
+      <GlobalStyles />
       <Nav />
       <main>
         {transition((props, item) => (

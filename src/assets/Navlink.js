@@ -5,8 +5,12 @@ export default function Navlink(props) {
   const { text, to } = props;
 
   return (
-    <NavLink className="navLink" activeClassName="activeNavLink" to={to}>
+    <NavLink activeStyle={activeStyle} to={to}>
       {text}
     </NavLink>
   );
 }
+
+const activeStyle = {
+  textDecoration: "underline",
+};

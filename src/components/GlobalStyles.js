@@ -23,6 +23,9 @@ export const GlobalStyles = createGlobalStyle`
     }
     nav{
         height: 10vh;
+        position: sticky;
+        top:0;
+        left:0;
     }
     main{
         position: relative;

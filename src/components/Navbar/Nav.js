@@ -1,18 +1,21 @@
 import React from "react";
 import Navlink from "../../assets/Navlink";
 import Logo from "./Logo";
+import HamButton from "./HamButton";
 import styled from "styled-components";
 import { FlexContainerX } from "../../assets/FlexContainerX.style";
 import { colorPalette } from "../../assets/colorPalette";
 
-export default function Nav({ toggleMenu }) {
+export default function Nav({ toggleMenu, isMenuToggled }) {
   return (
     <StyledNav>
       <Logo />
       <FlexContainerX>
         <Navlink text="Shop" to="/shop" />
         <Navlink text="Cart" to="/cart" />
-        <button onClick={toggleMenu}>Menu</button>
+        <HamButton onClick={toggleMenu} isActive={isMenuToggled}>
+          Menu
+        </HamButton>
       </FlexContainerX>
     </StyledNav>
   );
@@ -22,7 +25,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 0 5%;
   background-color: ${colorPalette.black};
   font-size: 2rem;
 
@@ -42,6 +45,9 @@ const StyledNav = styled.nav`
   }
 
   @media (min-width: 768px) {
+    & {
+      padding: 0, 10%;
+    }
     & > div > a {
       display: initial;
     }

@@ -23,7 +23,13 @@ const StyledLink = styled(Link)`
   }
 
   & > div > h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: normal;
+  }
+
+  @media (min-width: 768px) {
+    & > div > h1 {
+      font-size: 3rem;
+    }
   }
 `;

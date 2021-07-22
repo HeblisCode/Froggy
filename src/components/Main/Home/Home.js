@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import backgroundImg from "../../../images/Background.jpg";
+import desktopImg from "../../../images/Background-desktop.jpg";
+import mobileImg from "../../../images/Background-mobile.jpg";
 import { FlexContainerY } from "../../../assets/FlexContainerY.style";
 import { GreenButton } from "../../../assets/GreenButton";
 import { Link } from "react-router-dom";
@@ -22,12 +23,13 @@ export default function Home() {
 }
 
 const HomeContainer = styled.div`
-  background: url(${backgroundImg});
+  background: url(${mobileImg});
   height: 90vh;
   width: 100%;
   background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-position-x: +40%;
+  /* background-position-x: +40%; */
   color: ${colorPalette.grey};
   padding: 10% 5%;
   text-align: center;
@@ -47,10 +49,14 @@ const HomeContainer = styled.div`
     flex-grow: 1;
   }
 
+  @media (min-width: 1336px) {
+    background: url(${desktopImg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 60%;
+  }
+
   @media (min-width: 768px) {
-    background-size: 120%;
-    background-position-x: 0%;
-    background-position-y: 50%;
     padding: 0 10%;
     text-align: initial;
     display: flex;

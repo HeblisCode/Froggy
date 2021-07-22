@@ -2,15 +2,17 @@ import { createGlobalStyle } from "styled-components";
 import { colorPalette } from "../assets/colorPalette";
 
 export const GlobalStyles = createGlobalStyle`
+    *{
+        margin: 0;
+        padding: 0;        
+        box-sizing: border-box; 
+    }
     html{
         width: 100vw;
         min-height: 100vh;
-        box-sizing: border-box; 
     }
     body{
         background-color: ${colorPalette.grey};
-        margin: 0;
-        padding: 0;
         height: 100vh;
         width: 100vw;
         font-family:'Staatliches', cursive;
@@ -30,6 +32,10 @@ export const GlobalStyles = createGlobalStyle`
     main{
         position: relative;
         flex-grow: 1;
+    }
+    main > div {
+        min-height: 100%;
+        width: 100%;
     }
     .container{
         position: absolute;

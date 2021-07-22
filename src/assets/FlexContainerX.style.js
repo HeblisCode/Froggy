@@ -5,7 +5,6 @@ export const FlexContainerX = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
 
   @media (min-width: 768px) {
     gap: 2rem;

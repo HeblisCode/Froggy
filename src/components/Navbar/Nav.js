@@ -25,7 +25,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 8%;
   background-color: ${colorPalette.black};
   font-size: 2rem;
 
@@ -45,9 +45,7 @@ const StyledNav = styled.nav`
   }
 
   @media (min-width: 768px) {
-    & {
-      padding: 0, 10%;
-    }
+    padding: 0 10%;
     & > div > a {
       display: initial;
     }

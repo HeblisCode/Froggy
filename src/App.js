@@ -6,21 +6,45 @@ import Cart from "./components/Main/Cart/Cart";
 import Nav from "./components/Navbar/Nav";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { useTransition, animated } from "@react-spring/web";
+import MobileNav from "./components/Navbar/MobileNav";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const location = useLocation();
-  const transition = useTransition(location, {
+  const [isMenuToggled, setIsMenuToggled] = useState(true);
+
+  const routesTransition = useTransition(location, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   });
+  const mobileNavTransition = useTransition(isMenuToggled, {
+    from: { x: "100%" },
+    enter: { x: "0%" },
+    leave: { x: "100%" },
+  });
+
+  const toggleMenu = () => {
+    setIsMenuToggled(!isMenuToggled);
+  };
+
+  //closes the mobile menu after clicking on a link
+  useEffect(() => {
+    if (isMenuToggled) {
+      toggleMenu();
+    }
+    return;
+  }, [location]);
 
   return (
     <>
       <GlobalStyles />
-      <Nav />
+      <Nav toggleMenu={toggleMenu} />
       <main>
-        {transition((props, item) => (
+        {mobileNavTransition((props, item) =>
+          item ? <MobileNav style={props} /> : null
+        )}
+        {routesTransition((props, item) => (
           <animated.div style={props} className="container">
             <Switch location={item}>
               <Route path="/" exact component={Home}></Route>

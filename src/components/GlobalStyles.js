@@ -2,6 +2,11 @@ import { createGlobalStyle } from "styled-components";
 import { colorPalette } from "../assets/colorPalette";
 
 export const GlobalStyles = createGlobalStyle`
+    html{
+        width: 100vw;
+        min-height: 100vh;
+        box-sizing: border-box; 
+    }
     body{
         background-color: ${colorPalette.grey};
         margin: 0;
@@ -17,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         flex-direction: column;
     }
     nav{
-        height: 10%;
+        height: 10vh;
     }
     main{
         position: relative;

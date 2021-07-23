@@ -29,7 +29,6 @@ const HomeContainer = styled.div`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  /* background-position-x: +40%; */
   color: ${colorPalette.grey};
   padding: 10% 5%;
   text-align: center;

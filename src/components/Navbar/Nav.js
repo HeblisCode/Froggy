@@ -28,6 +28,7 @@ const StyledNav = styled.nav`
   padding: 0 8%;
   background-color: ${colorPalette.black};
   font-size: 2rem;
+  z-index: 100;
 
   & > a,
   & > div > a {

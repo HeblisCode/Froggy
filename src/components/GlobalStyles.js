@@ -8,37 +8,37 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box; 
     }
     html{
-        width: 100vw;
         min-height: 100vh;
+        width: 100%;
     }
     body{
         background-color: ${colorPalette.grey};
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         font-family:'Staatliches', cursive;
     }
     #root{
-        height: 100%;
+        min-height: 100%;
         width: 100%;
         display: flex;
         flex-direction: column;
     }
     nav{
         height: 10vh;
+        width: 100%;
         position: sticky;
         top:0;
         left:0;
     }
     main{
         position: relative;
-        flex-grow: 1;
+        min-height: 100%;
     }
     main > div {
         min-height: 100%;
         width: 100%;
     }
     .container{
-        position: absolute;
         top: 0;
         left: 0;
         width: 100%;

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useWindowDimension from "../../../hooks/useWindowDimension";
+import splitArray from "../../../lib/splitArray";
+import Item from "./Item";
 
 export default function ItemContainer({ itemsDataArray }) {
   const windowDim = useWindowDimension();
@@ -9,22 +11,23 @@ export default function ItemContainer({ itemsDataArray }) {
 
   //eval the number of columns based on page width
   useEffect(() => {
-    const MAX_COLUMN_WIDTH = 450;
-    setNumOfColumns((windowDim.width / MAX_COLUMN_WIDTH).toFixed(0));
+    const MAX_COLUMN_WIDTH = 650;
+    const columns = (windowDim.width / MAX_COLUMN_WIDTH).toFixed(0);
+    setNumOfColumns(+columns === 0 ? 1 : columns);
   }, [windowDim]);
 
-  //split the data array into #column parts
+  //split the data array into #columns parts
   useEffect(() => {
     setSplittedDataArray(splitArray(itemsDataArray, numOfColumns));
   }, [itemsDataArray, numOfColumns]);
 
   return (
     <StyledItemContainer columns={numOfColumns}>
-      {splittedDataArray.map((array) => {
+      {splittedDataArray.map((array, i) => {
         return (
-          <div>
-            {array.map((image) => {
-              return <img src={image.url} alt="" />;
+          <div key={i}>
+            {array.map((data) => {
+              return <Item data={data} key={data.id} />;
             })}
           </div>
         );
@@ -47,18 +50,4 @@ const StyledItemContainer = styled.div`
   & > div > img {
     width: 100%;
   }
-
-  @media (min-width: 768px) {
-  }
 `;
-
-function splitArray(array, numOfParts) {
-  const tempArray = array.map((elem) => elem);
-  const elemPerPart = (tempArray.length / numOfParts).toFixed(0);
-  const finalArray = [];
-  for (let i = 1; i < numOfParts; i++) {
-    finalArray.push(tempArray.splice(0, elemPerPart));
-  }
-  finalArray.push(tempArray);
-  return finalArray;
-}

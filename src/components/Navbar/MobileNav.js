@@ -18,7 +18,7 @@ const StyledMobileNav = styled(animated.div)`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%100pt;
+  height: 100%;
   padding-top: 2rem;
   background-color: ${colorPalette.green};
   margin-top: 10vh;

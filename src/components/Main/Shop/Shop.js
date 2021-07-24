@@ -1,75 +1,9 @@
 import React from "react";
-import testImg1 from "../../../images/testImg1.jpg";
-import testImg2 from "../../../images/testImg2.jpg";
-import testImg3 from "../../../images/testImg3.jpg";
-import testImg4 from "../../../images/testImg4.jpg";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 
-export default function Shop() {
-  const itemsDataArray = [
-    {
-      url: testImg1,
-    },
-    {
-      url: testImg2,
-    },
-    {
-      url: testImg3,
-    },
-    {
-      url: testImg4,
-    },
-    {
-      url: testImg1,
-    },
-    {
-      url: testImg2,
-    },
-    {
-      url: testImg3,
-    },
-    {
-      url: testImg4,
-    },
-    {
-      url: testImg1,
-    },
-    {
-      url: testImg2,
-    },
-    {
-      url: testImg3,
-    },
-    {
-      url: testImg4,
-    },
-    {
-      url: testImg1,
-    },
-    {
-      url: testImg2,
-    },
-    {
-      url: testImg3,
-    },
-    {
-      url: testImg4,
-    },
-    {
-      url: testImg1,
-    },
-    {
-      url: testImg2,
-    },
-    {
-      url: testImg3,
-    },
-    {
-      url: testImg4,
-    },
-  ];
-
+export default function Shop({ itemsDataArray }) {
+  console.log(itemsDataArray);
   return (
     <ShopContainer className="shop">
       <ItemContainer itemsDataArray={itemsDataArray} />
@@ -79,9 +13,9 @@ export default function Shop() {
 
 const ShopContainer = styled.div`
   width: 100%;
-  padding: 5%;
+  padding: 5% 0;
 
   @media (min-width: 768px) {
-    padding: 10%;
+    padding: 5% 15%;
   }
 `;

@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     body{
         background-color: ${colorPalette.grey};
-        height: 100%;
+        height: 100vh;
         width: 100%;
         font-family:'Staatliches', cursive;
     }
@@ -32,15 +32,12 @@ export const GlobalStyles = createGlobalStyle`
     }
     main{
         position: relative;
-        min-height: 100%;
-    }
-    main > div {
-        min-height: 100%;
-        width: 100%;
+        flex-grow: 1;
     }
     .container{
         top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
     }
 `;

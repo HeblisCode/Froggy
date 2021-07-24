@@ -2,16 +2,20 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import React from "react";
 import Home from "./components/Main/Home/Home";
 import Shop from "./components/Main/Shop/Shop";
+import ItemDetails from "./components/Main/ItemDetails/ItemDetails";
 import Cart from "./components/Main/Cart/Cart";
 import Nav from "./components/Navbar/Nav";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { useTransition, animated } from "@react-spring/web";
 import MobileNav from "./components/Navbar/MobileNav";
 import { useState, useEffect } from "react";
+import useFetch from "./hooks/useFetch";
 
 export default function App() {
   const location = useLocation();
   const [isMenuToggled, setIsMenuToggled] = useState(true);
+  const [numberOfItems, setNumberOfItems] = useState(40);
+  const [displayedItems, setDisplayedItems] = useFetch(numberOfItems);
 
   const routesTransition = useTransition(location, {
     from: { opacity: 0 },
@@ -48,7 +52,14 @@ export default function App() {
           <animated.div style={props} className="container">
             <Switch location={item}>
               <Route path="/" exact component={Home}></Route>
-              <Route path="/shop" exact component={Shop}></Route>
+              <Route
+                path="/shop"
+                exact
+                render={(props) => (
+                  <Shop {...props} itemsDataArray={displayedItems} />
+                )}
+              ></Route>
+              <Route path="/shop/:id" component={ItemDetails}></Route>
               <Route path="/cart" exact component={Cart}></Route>
             </Switch>
           </animated.div>

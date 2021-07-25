@@ -1,34 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-const useFetch = (numberOfPics) => {
-  const [dataArray, setDataArray] = useState([]);
+export default function useFetch(url) {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      `https://api.pexels.com/v1/search?query=frog&curated?page=1&per_page=${numberOfPics}`,
-      {
-        headers: {
-          Authorization:
-            "563492ad6f91700001000001167cf63238cd4fe79fe6c132c3fbd43e",
-        },
-      }
-    )
+    console.log("API CALL!");
+    setLoading(true);
+    fetch(url, {
+      headers: {
+        Authorization:
+          "563492ad6f91700001000001167cf63238cd4fe79fe6c132c3fbd43e",
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
-        return data.photos.map((photo) => {
-          return {
-            id: photo.id,
-            src: photo.src,
-            photographer: photo.photographer,
-            photographerUrl: photo.photographer_url,
-            avgColor: "",
-          };
-        });
-      })
-      .then((array) => setDataArray(array));
-  }, [numberOfPics]);
+        setData(data);
+        setLoading(false);
+      });
+  }, [url]);
 
-  return [dataArray, setDataArray];
-};
-
-export default useFetch;
+  return [data, loading];
+}

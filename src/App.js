@@ -10,12 +10,16 @@ import { useTransition, animated } from "@react-spring/web";
 import MobileNav from "./components/Navbar/MobileNav";
 import { useState, useEffect } from "react";
 import useFetch from "./hooks/useFetch";
+import useShoppingCart from "./hooks/useShoppingCart";
 
 export default function App() {
   const location = useLocation();
   const [isMenuToggled, setIsMenuToggled] = useState(true);
   const [numberOfItems, setNumberOfItems] = useState(40);
-  const [displayedItems, setDisplayedItems] = useFetch(numberOfItems);
+  const ShoppingCart = useShoppingCart();
+  const [shopItems] = useFetch(
+    `https://api.pexels.com/v1/search?query=frog&curated?page=1&per_page=${numberOfItems}`
+  );
 
   const routesTransition = useTransition(location, {
     from: { opacity: 0 },
@@ -56,11 +60,22 @@ export default function App() {
                 path="/shop"
                 exact
                 render={(props) => (
-                  <Shop {...props} itemsDataArray={displayedItems} />
+                  <Shop {...props} itemsDataArray={shopItems.photos} />
                 )}
               ></Route>
-              <Route path="/shop/:id" component={ItemDetails}></Route>
-              <Route path="/cart" exact component={Cart}></Route>
+              <Route
+                path="/shop/:id"
+                render={(props) => (
+                  <ItemDetails {...props} shoppingCart={ShoppingCart} />
+                )}
+              ></Route>
+              <Route
+                path="/cart"
+                exact
+                render={(props) => (
+                  <Cart {...props} shoppingCart={ShoppingCart} />
+                )}
+              ></Route>
             </Switch>
           </animated.div>
         ))}

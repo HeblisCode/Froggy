@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
 export default function useShoppingCart() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("cartData")) || []
+  );
 
   useEffect(() => {
     _clearEmptyItems();
-    console.log(items);
+    localStorage.setItem("cartData", JSON.stringify(items));
   }, [items]);
 
   const add = (itemId, quantity) => {
@@ -51,8 +53,16 @@ export default function useShoppingCart() {
     return items.reduce((total, item) => total + item.count, 0);
   };
 
+  const getPrice = (id) => {
+    const array = id.toString().split("").slice(-3);
+    array[0] = +array[0] + 1;
+    return +array.join("") / 100;
+  };
+
   const getTotalPrice = () => {
-    return 1000;
+    return items.reduce((total, item) => {
+      return +(total + getPrice(item.id) * item.count).toFixed(2);
+    }, 0);
   };
 
   const _clearEmptyItems = () => {
@@ -65,6 +75,7 @@ export default function useShoppingCart() {
     items,
     getTotalItems,
     getTotalPrice,
+    getPrice,
     getCount,
     add,
     remove,

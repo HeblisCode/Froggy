@@ -27,7 +27,7 @@ export default function CartItem({ ShoppingCart, id }) {
               display={ShoppingCart.getCount(id)}
             />
             <p>
-              123$ <span>x Frog</span>
+              {ShoppingCart.getPrice(id)}$ <span>x Frog</span>
             </p>
           </ItemInfos>
           <SmallButton

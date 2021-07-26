@@ -40,7 +40,7 @@ const StyledCheckoutMenu = styled(animated.div)`
   justify-content: space-between;
   font-size: 1.3rem;
   -webkit-box-shadow: 0px 3px 14px 11px rgba(0, 0, 0, 0.64);
-  box-shadow: 0px 3px 14px 11px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.2);
 
   & > div {
     display: flex;

@@ -14,6 +14,7 @@ export const GreenButton = styled.button`
   &:hover {
     color: ${colorPalette.green};
     background-color: ${colorPalette.grey};
+    border: 2px solid ${colorPalette.green};
   }
 
   @media (min-width: 768px) {

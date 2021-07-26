@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { LabeledListElem } from "./LabeledListElem.style";
 import { GreenButton } from "../../../assets/GreenButton";
 import useWindowDimension from "../../../hooks/useWindowDimension";
-import { SmallButton } from "../../../assets/SmallButton.style";
+import ItemCounter from "../../../assets/ItemCounter";
 
 export default function ItemDetails(props) {
   const id = props.match.params.id;
   const ShoppingCart = props.shoppingCart;
   const [data, loading] = useFetch(`https://api.pexels.com/v1/photos/${id}`);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
   const [imgSize, setImgSize] = useState();
   const windowDim = useWindowDimension();
 
@@ -45,17 +45,11 @@ export default function ItemDetails(props) {
             </LabeledListElem>
             <LabeledListElem>
               <p>Quantity:</p>
-              <div>
-                <SmallButton
-                  icon={"sub"}
-                  onClick={decrementCounter}
-                ></SmallButton>
-                <p>{counter}</p>
-                <SmallButton
-                  icon={"add"}
-                  onClick={incrementCounter}
-                ></SmallButton>
-              </div>
+              <ItemCounter
+                add={incrementCounter}
+                sub={decrementCounter}
+                display={counter}
+              />
             </LabeledListElem>
             <LabeledListElem>
               <p>Price:</p>

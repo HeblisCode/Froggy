@@ -25,7 +25,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8%;
+  padding: 0 5%;
   background-color: ${colorPalette.black};
   font-size: 2rem;
   z-index: 100;

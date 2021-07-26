@@ -47,6 +47,14 @@ export default function useShoppingCart() {
     setItems(items.filter((item) => item.id !== itemId));
   };
 
+  const getTotalItems = () => {
+    return items.reduce((total, item) => total + item.count, 0);
+  };
+
+  const getTotalPrice = () => {
+    return 1000;
+  };
+
   const _clearEmptyItems = () => {
     items.forEach((item) => {
       if (item.count === 0) removeAll(item.id);
@@ -55,6 +63,8 @@ export default function useShoppingCart() {
 
   return {
     items,
+    getTotalItems,
+    getTotalPrice,
     getCount,
     add,
     remove,

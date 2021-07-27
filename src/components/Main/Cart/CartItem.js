@@ -4,7 +4,6 @@ import { SmallButton } from "../../../assets/SmallButton.style";
 import ItemCounter from "../../../assets/ItemCounter";
 import useFetch from "../../../hooks/useFetch";
 import { colorPalette } from "../../../assets/colorPalette";
-import LoadingSpinner from "../../../assets/LoadingSpinner";
 
 export default function CartItem({ ShoppingCart, id }) {
   const [itemData, loading] = useFetch(

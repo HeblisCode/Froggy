@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorPalette } from "../../../assets/colorPalette";
+import { colorPalette } from "./colorPalette";
 
 export const LabeledListElem = styled.div`
   width: 100%;

@@ -5,6 +5,7 @@ import { LabeledListElem } from "./LabeledListElem.style";
 import { GreenButton } from "../../../assets/GreenButton";
 import useWindowDimension from "../../../hooks/useWindowDimension";
 import ItemCounter from "../../../assets/ItemCounter";
+import LoadingSpinner from "../../../assets/LoadingSpinner";
 
 export default function ItemDetails(props) {
   const id = props.match.params.id;
@@ -30,7 +31,7 @@ export default function ItemDetails(props) {
   return (
     <>
       {loading ? (
-        <div>Loading</div>
+        <LoadingSpinner dim={"20vh"}></LoadingSpinner>
       ) : (
         <StyledItemDetails dim={imgSize}>
           <ImageContainer>
@@ -54,7 +55,7 @@ export default function ItemDetails(props) {
             <LabeledListElem>
               <p>Price:</p>
               <div>
-                <p>123.00$</p>
+                <p>{(ShoppingCart.getPrice(id) * counter).toFixed(2)} $</p>
               </div>
             </LabeledListElem>
             <GreenButton onClick={() => ShoppingCart.add(id, counter)}>

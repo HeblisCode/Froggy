@@ -17,6 +17,7 @@ export const SmallButton = styled.button`
   background-size: cover;
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     width: 2rem;

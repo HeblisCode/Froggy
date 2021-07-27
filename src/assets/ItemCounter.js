@@ -16,9 +16,10 @@ export default function ItemCounter(props) {
 const StyledItemCounter = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
 
-  & > div {
-    font-size: 1rem;
+  & > p {
+    width: 2ch;
+    text-align: center;
   }
 `;

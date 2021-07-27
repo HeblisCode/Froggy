@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import ItemContainer from "./ItemContainer";
 
-export default function Shop({ itemsDataArray }) {
-  console.log(itemsDataArray);
+export default function Shop({ ShoppingCart }) {
   return (
     <ShopContainer className="shop">
-      <ItemContainer itemsDataArray={itemsDataArray} />
+      <ItemContainer ShoppingCart={ShoppingCart} />
     </ShopContainer>
   );
 }
@@ -14,8 +13,12 @@ export default function Shop({ itemsDataArray }) {
 const ShopContainer = styled.div`
   width: 100%;
   padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: 768px) {
-    padding: 5% 15%;
+    padding: 5% 0;
   }
 `;

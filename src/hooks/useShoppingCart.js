@@ -53,22 +53,22 @@ export default function useShoppingCart() {
     return items.reduce((total, item) => total + item.count, 0);
   };
 
+  const _clearEmptyItems = () => {
+    items.forEach((item) => {
+      if (item.count === 0) removeAll(item.id);
+    });
+  };
+
   const getPrice = (id) => {
     const array = id.toString().split("").slice(-3);
     array[0] = +array[0] + 1;
-    return +array.join("") / 100;
+    return (+array.join("") / 100).toFixed(2);
   };
 
   const getTotalPrice = () => {
     return items.reduce((total, item) => {
       return +(total + getPrice(item.id) * item.count).toFixed(2);
     }, 0);
-  };
-
-  const _clearEmptyItems = () => {
-    items.forEach((item) => {
-      if (item.count === 0) removeAll(item.id);
-    });
   };
 
   return {

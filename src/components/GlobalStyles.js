@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100vh;
         width: 100%;
         font-family:'Staatliches', cursive;
+        scroll-behavior: smooth;
     }
     #root{
         min-height: 100%;

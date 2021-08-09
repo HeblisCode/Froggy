@@ -4,6 +4,7 @@ import { SmallButton } from "../../../assets/SmallButton.style";
 import ItemCounter from "../../../assets/ItemCounter";
 import useFetch from "../../../hooks/useFetch";
 import { colorPalette } from "../../../assets/colorPalette";
+import CartLoadingSpinner from "../../../assets/CartLoadingSpinner";
 
 export default function CartItem({ ShoppingCart, id }) {
   const [itemData, loading] = useFetch(
@@ -13,7 +14,7 @@ export default function CartItem({ ShoppingCart, id }) {
   return (
     <>
       {loading ? (
-        <div>Loading</div>
+        <CartLoadingSpinner />
       ) : (
         <StyledCartItem>
           <ImageContainer>
@@ -42,6 +43,7 @@ export default function CartItem({ ShoppingCart, id }) {
 
 const StyledCartItem = styled.div`
   width: 100%;
+  height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,8 +66,8 @@ const ItemInfos = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 4rem;
-  height: 4rem;
+  height: 100%;
+  aspect-ratio: 1;
 
   & > img {
     width: 100%;

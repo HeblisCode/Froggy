@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Froggy/static/js/main.bd5dee70.chunk.js",
-    "main.js.map": "/Froggy/static/js/main.bd5dee70.chunk.js.map",
+    "main.js": "/Froggy/static/js/main.f190452f.chunk.js",
+    "main.js.map": "/Froggy/static/js/main.f190452f.chunk.js.map",
     "runtime-main.js": "/Froggy/static/js/runtime-main.428165fc.js",
     "runtime-main.js.map": "/Froggy/static/js/runtime-main.428165fc.js.map",
     "static/js/2.baa5bd56.chunk.js": "/Froggy/static/js/2.baa5bd56.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.428165fc.js",
     "static/js/2.baa5bd56.chunk.js",
-    "static/js/main.bd5dee70.chunk.js"
+    "static/js/main.f190452f.chunk.js"
   ]
 }

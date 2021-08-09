@@ -5,12 +5,14 @@ import React from "react";
 
 export default function HamButton({ onClick, isActive }) {
   const topAnimation = useSpring({
-    y: isActive ? "0.62rem" : "0rem",
+    top: isActive ? "50%" : "0%",
+    y: isActive ? "-50%" : "0%",
     rotate: isActive ? "-45deg" : "0deg",
   });
   const middleAnimation = useSpring({ opacity: isActive ? 0 : 1 });
   const bottomAnimation = useSpring({
-    y: isActive ? "-0.62rem" : "0rem",
+    bottom: isActive ? "50%" : "0%",
+    y: isActive ? "50%" : "0%",
     rotate: isActive ? "45deg" : "0deg",
   });
 
@@ -39,15 +41,14 @@ const StyledHamButton = styled.button`
   background-color: transparent;
 
   & > div {
-    position: absolute;
     background-color: ${colorPalette.green};
     width: 100%;
     height: 0.3rem;
     transform-origin: center;
+    position: absolute;
   }
 
   & > .topBar {
-    top: 0;
   }
 
   & > .middleBar {
@@ -56,6 +57,5 @@ const StyledHamButton = styled.button`
   }
 
   & > .bottomBar {
-    bottom: 0;
   }
 `;

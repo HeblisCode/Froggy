@@ -13,9 +13,7 @@ export default function Nav({ toggleMenu, isMenuToggled }) {
       <FlexContainerX>
         <Navlink text="Shop" to="/shop" />
         <Navlink text="Cart" to="/cart" />
-        <HamButton onClick={toggleMenu} isActive={isMenuToggled}>
-          Menu
-        </HamButton>
+        <HamButton onClick={toggleMenu} isActive={isMenuToggled} />
       </FlexContainerX>
     </StyledNav>
   );

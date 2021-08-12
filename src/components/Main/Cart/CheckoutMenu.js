@@ -18,6 +18,7 @@ export default function CheckoutMenu({ ShoppingCart }) {
             <p>{ShoppingCart.getTotalPrice()} $</p>
           </div>
         </LabeledListElem>
+        <div style={{ height: "2rem" }}>{/* spacer */}</div>
         <GreenButton>Checkout</GreenButton>
       </div>
     </StyledCheckoutMenu>
@@ -28,7 +29,7 @@ const StyledCheckoutMenu = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: ${colorPalette.black};
+  color: ${colorPalette.grey};
 
   & > div {
     display: flex;

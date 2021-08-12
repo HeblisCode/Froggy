@@ -21,6 +21,10 @@ export default function ScrollToTop() {
     };
 
     window.addEventListener("scroll", showButton);
+
+    return () => {
+      window.removeEventListener("scroll", showButton);
+    };
   }, []);
 
   return (
@@ -72,6 +76,10 @@ const StyledScrollToTop = styled(animated.button)`
     transform: translate(-50%, -50%);
     top: 70%;
     left: 70%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 
   @media (max-width: 767px) {

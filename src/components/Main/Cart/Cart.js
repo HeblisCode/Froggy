@@ -4,9 +4,12 @@ import CheckoutMenuMobile from "./CheckoutMenuMobile";
 import CartItem from "./CartItem";
 import useWindowDimension from "../../../hooks/useWindowDimension";
 import CheckoutMenu from "./CheckoutMenu";
+import EmptyCart from "./EmptyCart";
+import { BlackButton } from "../../../assets/BlackButton";
 
 export default function Cart({ shoppingCart }) {
   const [isMobile, setIsMobile] = useState(false);
+  const [isCartEmpty, setIsCartEmpty] = useState(true);
   const windowDim = useWindowDimension();
 
   useEffect(() => {
@@ -17,25 +20,47 @@ export default function Cart({ shoppingCart }) {
     }
   }, [windowDim]);
 
+  useEffect(() => {
+    if (+shoppingCart.getTotalItems() === 0) {
+      setIsCartEmpty(true);
+    } else {
+      setIsCartEmpty(false);
+    }
+  }, [shoppingCart]);
+
   return (
-    <CartContainer>
-      <ItemsContainer>
-        {shoppingCart.items.map((data) => (
-          <CartItem ShoppingCart={shoppingCart} id={data.id} key={data.id} />
-        ))}
-      </ItemsContainer>
-      {isMobile ? (
-        <CheckoutMenuMobile ShoppingCart={shoppingCart} />
+    <>
+      {isCartEmpty ? (
+        <EmptyCart />
       ) : (
-        <CheckoutMenu ShoppingCart={shoppingCart} />
+        <CartContainer>
+          <ItemsContainer>
+            {shoppingCart.items.map((data) => (
+              <CartItem
+                ShoppingCart={shoppingCart}
+                id={data.id}
+                key={data.id}
+              />
+            ))}
+            <div className="spacer">{/* spacer */}</div>
+            <BlackButton onClick={() => shoppingCart.emptyCart()}>
+              Empty Cart
+            </BlackButton>
+          </ItemsContainer>
+          {isMobile ? (
+            <CheckoutMenuMobile ShoppingCart={shoppingCart} />
+          ) : (
+            <CheckoutMenu ShoppingCart={shoppingCart} />
+          )}
+        </CartContainer>
       )}
-    </CartContainer>
+    </>
   );
 }
 
 const CartContainer = styled.div`
   padding: 5%;
-  margin-bottom: 9rem;
+  padding-bottom: 10rem;
 
   @media (min-width: 768px) {
     padding: 5% 15%;
@@ -51,4 +76,25 @@ const ItemsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  & > .spacer {
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  & > button {
+    flex-shrink: 0;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    & > .spacer {
+      height: 2rem;
+    }
+  }
 `;

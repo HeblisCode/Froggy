@@ -44,6 +44,7 @@ export default function Item(props) {
 
 const StyledItem = styled(animated.div)`
   width: 100%;
+  aspect-ratio: 1;
   position: relative;
   overflow: hidden;
 
@@ -77,9 +78,13 @@ const StyledItem = styled(animated.div)`
   & > a,
   & > a > img {
     display: block;
-    height: 30rem;
+    height: 100%;
     object-fit: cover;
     width: 100%;
     color: ${colorPalette.grey};
+  }
+
+  @media (min-width: 768px) {
+    aspect-ratio: 0.75;
   }
 `;

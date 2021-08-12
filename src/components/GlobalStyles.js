@@ -13,13 +13,13 @@ export const GlobalStyles = createGlobalStyle`
     }
     body{
         background-color: ${colorPalette.grey};
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         font-family:'Staatliches', cursive;
         scroll-behavior: smooth;
     }
     #root{
-        min-height: 100%;
+        min-height: 100vh;
         width: 100%;
         display: flex;
         flex-direction: column;

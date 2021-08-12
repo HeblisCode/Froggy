@@ -71,6 +71,10 @@ export default function useShoppingCart() {
     }, 0);
   };
 
+  const emptyCart = () => {
+    setItems([]);
+  };
+
   return {
     items,
     getTotalItems,
@@ -80,5 +84,6 @@ export default function useShoppingCart() {
     add,
     remove,
     removeAll,
+    emptyCart,
   };
 }

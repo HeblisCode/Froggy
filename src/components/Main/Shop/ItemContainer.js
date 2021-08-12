@@ -33,9 +33,10 @@ export default function ItemContainer(props) {
 const StyledItemContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   max-width: 1250px;
+  padding: 0 1rem;
 
   & > div {
     display: flex;
@@ -50,5 +51,6 @@ const StyledItemContainer = styled.div`
   @media (min-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     padding: 2rem;
+    gap: 2rem;
   }
 `;

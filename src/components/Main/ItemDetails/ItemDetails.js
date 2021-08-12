@@ -7,6 +7,7 @@ import useWindowDimension from "../../../hooks/useWindowDimension";
 import ItemCounter from "../../../assets/ItemCounter";
 import LoadingSpinner from "../../../assets/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { BlackButton } from "../../../assets/BlackButton";
 
 export default function ItemDetails(props) {
   const id = props.match.params.id;
@@ -60,13 +61,14 @@ export default function ItemDetails(props) {
                 <p>{(ShoppingCart.getPrice(id) * counter).toFixed(2)} $</p>
               </div>
             </LabeledListElem>
+            <div className="spacer">{/* spacer */}</div>
             {userHasClicked ? (
-              <div>
+              <div className="buttonContainer">
                 <Link to={"/shop"}>
-                  <GreenButton>Back to Shop</GreenButton>
+                  <BlackButton>Back to Shop</BlackButton>
                 </Link>
                 <Link to={"/cart"}>
-                  <GreenButton>Go to Cart</GreenButton>
+                  <BlackButton>Go to Cart</BlackButton>
                 </Link>
               </div>
             ) : (
@@ -119,9 +121,21 @@ const InfoContaiener = styled.div`
   flex-direction: column;
   gap: 1.5rem;
 
+  & > .buttonContainer {
+    display: flex;
+    gap: 2rem;
+  }
+
+  & > .spacer {
+    height: 2rem;
+  }
+
   @media (max-width: 767px) {
     & > button {
       align-self: center;
+    }
+    & > .spacer {
+      height: 0rem;
     }
   }
 `;

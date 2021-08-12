@@ -43,7 +43,11 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
-      <Nav toggleMenu={toggleMenu} isMenuToggled={isMenuToggled} />
+      <Nav
+        toggleMenu={toggleMenu}
+        isMenuToggled={isMenuToggled}
+        ShoppingCart={ShoppingCart}
+      />
       <main>
         {mobileNavTransition((props, item) =>
           item ? <MobileNav style={props} /> : null

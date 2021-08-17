@@ -28,10 +28,10 @@ I've tried to structure everything in a way that makes it easy to add/remove a p
 
 ### Mobile <br>
 
-<img src="./src/screenshots/ScreenshotHomeMobile.png" height="600px"> 
-<img src="./src/screenshots/ScreenshotShopMobile.png" height="600px" align="right"> <br> <br>
-<img src="./src/screenshots/ScreenshotCartMobile.png" height="600px"> 
-<img src="./src/screenshots/ScreenshotMenuMobile.png" height="600px" align="right">
+<img src="./src/screenshots/ScreenshotHomeMobile.png" height="600px"> <br> <br>
+<img src="./src/screenshots/ScreenshotShopMobile.png" height="600px"> <br> <br>
+<img src="./src/screenshots/ScreenshotCartMobile.png" height="600px"> <br> <br>
+<img src="./src/screenshots/ScreenshotMenuMobile.png" height="600px"> <br> <br>
 
 ### Desktop <br>
 

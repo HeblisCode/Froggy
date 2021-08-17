@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Froggy <br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple e-commerce front-end page created with create-react-app. You can take a look at the live version [here](https://hebliscode.github.io/Froggy/#/) <br>
 
-## Available Scripts
+## Overview <br>
 
-In the project directory, you can run:
+The app is structured with react-router-dom. There are two parts: the navbar and the main. The navbar is rendered in every single route while the main holds the content of the selected route.
+Every page and component is styled using the styled-components library using a mobile first approach.
+All the animations are achieved using the react-spring library, usually using the useSping and useTransitions hooks.
+Since I didn't have access to a real shopping catalog, the app fetches some images from the pexel API and uses those as "items" to sell, evaluating a price based on the image id number.<br>
 
-### `npm start`
+## Technologies and libraries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- styled-components
+- react-spring
+- react-router-dom
+- pexel API
+- figma
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How I built it <br>
 
-### `npm test`
+The first step was creating a mockup of the page using figma (you can find it [here](https://www.figma.com/file/hl4ZKRIcodqf8NFwqorMVu/ShoppingCart?node-id=0%3A1)). After that I've set up the routes, the transitions and styled the navbar. Once that was done I started working on the single pages (home, shop...) making a static version first and adding all the functionality later.
+The whole cart logic can be found inside the useShoppingCart hook which saves the items with a useState hook and returns an object with methods to update the state.
+I've tried to structure everything in a way that makes it easy to add/remove a page from the app. <br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots <br>
 
-### `npm run build`
+### Mobile <br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./src/screenshots/ScreenshotHomeMobile.png" height="600px"> 
+<img src="./src/screenshots/ScreenshotShopMobile.png" height="600px" align="right"> <br> <br>
+<img src="./src/screenshots/ScreenshotCartMobile.png" height="600px"> 
+<img src="./src/screenshots/ScreenshotMenuMobile.png" height="600px" align="right">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Desktop <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="./src/screenshots/ScreenshotHomeDesktop.png"> <br><br>
+<img src="./src/screenshots/ScreenshotShopDesktop.png"> <br><br>
+<img src="./src/screenshots/ScreenshotCartDesktop.png"> <br><br>
